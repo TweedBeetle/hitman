@@ -70,13 +70,6 @@ STANDARD_TASK_ATTRIBUTES = [
         'ActionsGuarded': "DiscoverPreviewAndAccept",
     },
     from_america_qualification,
-    # us_high_school_qualification,
-    # {
-    #     'QualificationTypeId': "32HPRZ3TSLYH2064JOFRCYTWJ82KT6",  # no reddit account
-    #     'Comparator': "EqualTo",
-    #     'IntegerValues': [0],
-    #     'ActionsGuarded': "DiscoverPreviewAndAccept",
-    # },
 ]
 
 
@@ -446,37 +439,10 @@ def reaprove_hit(hit_id):
 
 
 if __name__ == "__main__":
-    # launch_emphasis_hit_batch(1)
+    reaprove_hit('335VBRURDIZ4PRG9JKX702T0Z7PE9T')
 
-    # datastore_client = get_datastore_client()
-    # launch_shorten_question_hit_batch(submission_id='2np694', production=False)
-
-    # launch_video_tags_hit_batch(submission_id='2np694', production=False)
-    # launch_word_emphasis_hit_batch(submission_id='2np694', title='Test ententanc ethis is', production=False)
-
-    # observer = HitObserver(datastore_client, production=False)
-    # observer.update()
-
-    # reaprove_hit('335VBRURDIZ4PRG9JKX702T0Z7PE9T')
-
-    # while True:
-    #     delete_all_hits(True)
-    #     time.sleep(5)
-
-    # launch_flavour_image_hit_batch('2np694', production=False, bar=True)
-    # launch_image_background_hit_batch('asdas', image_url='https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg',
-    #                                   production=False, bar=True)
-    # delete_all_hits(True)
-
-    # launch_title_rating_hit_batch([])
-
-    urls = [
-        'https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg',
-        'https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg',
-        'https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg',
-    ]
-
-    # launch_thumbnail_rating_hit_batch('asdas', image_urls=urls,
-    #                                   production=False, bar=True)
+    while True:
+        delete_all_hits(True)
+        time.sleep(5)
 
     pass
