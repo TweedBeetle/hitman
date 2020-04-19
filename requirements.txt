@@ -1,0 +1,5 @@
+boto3
+xmltodict
+tqdm
+google-cloud-datastore
+trueskill
