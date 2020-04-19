@@ -439,8 +439,6 @@ def reaprove_hit(hit_id):
 
 
 if __name__ == "__main__":
-    reaprove_hit('335VBRURDIZ4PRG9JKX702T0Z7PE9T')
-
     while True:
         delete_all_hits(True)
         time.sleep(5)
