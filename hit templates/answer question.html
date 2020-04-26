@@ -1,0 +1,123 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <crowd-instructions link-text="View instructions" link-type="button">
+        <short-summary>
+            <p>
+                Rephrase the question while omitting superfluous words, phrases and sentences where possible.
+            </p>
+            <p>
+                Leave out specific references to groups of people at the beginning of the question such as "Women of Reddit,.." or "Seniors of the Internet,...".
+            </p>
+            <p>
+                Take care to use proper capitalisation, punctuation and grammar.
+            </p>
+            <p>
+                If the question cannot be shortened as described, copy the original question.
+            </p>
+            <p>
+                The question should be appealing as the title to a youtube video.
+            </p>
+        </short-summary>
+
+        <detailed-instructions>
+            <h3>Shorten the question</h3>
+            <p>
+                Given a question, write a question that captures the gist of the original question
+                while leaving out words, phrases and sentences that do not ad specific meaning to the question.
+            </p>
+            <p>
+                Leave out specific references to groups of people at the beginning of the question such as "Women of Reddit,.." or "Seniors of the Internet,...".
+            </p>
+            <p>
+                If the question cannot be shortened as described, copy the original question.
+            </p>
+            <p>
+                The question should be appealing as the title to a youtube video.
+            </p>
+        </detailed-instructions>
+
+        <positive-example>
+            <h3>Question</h3>
+            <p>Were you ever that 1 in a 1.000.000? If so, whats your story?</p>
+
+
+            <h3>Shortened question</h3>
+            <p>Whats your 1 in 1,000,000 story?</p>
+        </positive-example>
+
+        <positive-example>
+            <h3>Question</h3>
+            <p>Redditors who've won a "Lifetime" supply contest: How did you win? and How is it lasting?</p>
+
+            <h3>Shortened question</h3>
+            <p>How did you win your "Lifetime supply" of something and how is it lasting?</p>
+        </positive-example>
+
+        <positive-example>
+            <h3>Question</h3>
+            <p>What's classy if you're rich but trashy if your poor?</p>
+
+            <h3>Shortened question</h3>
+            <p>What's classy if you're rich but trashy if your poor?</p>
+        </positive-example>
+
+        <negative-example>
+            <h3>Question</h3>
+            <p>What is an unexpectedly well-paid job?</p>
+
+            <h3>Shortened question</h3>
+            <p>What is a job that pays way more that you thought it would?</p>
+        </negative-example>
+    </crowd-instructions>
+
+    <p>
+        Rephrase the question while omitting superfluous words, phrases and sentences where possible.
+    </p>
+    <p>
+        Leave out specific references to groups of people at the beginning of the question such as "Women of Reddit,..." or "Seniors of the Internet,...".
+    </p>
+    <p>
+        Take care to use proper capitalisation, punctuation and grammar.
+    </p>
+    <p>
+        If the question cannot be shortened as described, copy the original question.
+    </p>
+    <p>
+        The question should be appealing as the title to a youtube video.
+    </p>
+    <p>
+        The question must end with a question mark.
+    </p>
+    <br>
+
+    <p><strong>Question: </strong></p>
+    <h2>${question}</h2>
+
+    <hr style="margin-top: 20px; margin-bottom: 20px">
+
+    <p><strong>How easy is it to answer his question</strong></p>
+
+    <table>
+        <tr>
+            <td>very easy</td>
+            <td>
+                <crowd-slider required name="difficulty_slider"></crowd-slider>
+            </td>
+            <td>impossible</td>
+        </tr>
+    </table>
+    <!--    <hr>-->
+    <hr style="margin-top: 20px; margin-bottom: 20px">
+
+    <p><strong>Type your answer below:</strong></p>
+    <crowd-input name="answer" placeholder="Type your answer here..." required max-length="80"></crowd-input>
+    <br>
+
+</crowd-form>

@@ -1,0 +1,80 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans -->
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <p>
+        The thumbnail to a youtube video will be comprised of some Text and and a single image.<br>
+        The task here is to find a suitable image for the thumbnail, given the video's
+        title.
+    </p>
+    <p>Examples for suitable images include:</p>
+    <ul>
+        <li>An image of a face showing the prevailing emotion of the video title</li>
+        <li>An Image showing an example of something mentioned in the title</li>
+        <li>An image showing a possible reaction of someone watching the video</li>
+    </ul>
+    <p>When selecting an image, the following factors must be taken into account:</p>
+    <ul>
+        <li>The image must be appropriate for youtube</li>
+        <li>The image should be eye-catching</li>
+        <!--        <li>If possible, the image should convey some immediate emotion fitting the video title</li>-->
+        <li>Ideally, the image should be in portrait (taller than it is wide)</li>
+        <li>Ideally, the image background should be a single solid color</li>
+        <li>The image must not contain watermarks</li>
+    </ul>
+    <br>
+
+    <p>
+        Only <b>direct links</b> to images <b>ending in '.png' or '.jpg'</b> will be deemed valid. <br>
+        When pasted in the url bar, the link must yield a page showing only the image.
+    </p>
+
+    <br>
+
+    <p>Here is a link to google's image search, should you require it: (opens in a new tab)</p>
+    <a href="https://www.google.com/imghp?as_st=y&tbm=isch&hl=en&as_q=&as_epq=&as_oq=&as_eq=&imgar=&imgcolor=&imgtype=&cr=&as_sitesearch=&safe=images&as_filetype=&as_rights="
+       target="_blank">search
+        link
+    </a>
+    <br>
+    <hr>
+
+
+    <p>
+        If the video title is a question, you may assume the video will contain different peoples answers to the the question
+    </p>
+    <p><strong>Video title: </strong>${title}</p>
+
+    <p><strong>Briefly describe the image you have selected</strong></p>
+    <crowd-input name="image description" placeholder="Describe your image here.." required></crowd-input>
+
+    <hr>
+    <br>
+
+
+    <p><strong>Paste the image location (link) below</strong></p>
+    <!--    <crowd-input auto-validate allowed-pattern=".*(.jpg|.png)( *)" name="image location" placeholder="image link ending in .jpg or .png"-->
+    <!--                 error-message="make sure the link you are trying to insert ends with either .jpg or .png" required></crowd-input>-->
+    <crowd-input name="image location" placeholder="image link ending in .jpg or .png" required max-length="250"></crowd-input>
+    <hr>
+
+    <p><strong>Where/how did you find this image?</strong></p>
+    <crowd-input name="image source" placeholder="" required></crowd-input>
+
+
+    <!--    <crowd-toggle-button required name="solid_background_toggler" valid="solid_background">asdasd</crowd-toggle-button>&ndash;&gt;-->
+    <!--    <br>-->
+    <!--    <br>-->
+
+    <!--    <p>-->
+    <!--        If you have any feedback regarding this HIT, feel free to submit it bellow. (optional)-->
+    <!--    </p>-->
+    <!--    <crowd-input name="feedback" placeholder="Type your feedback here..."></crowd-input>-->
+</crowd-form>
+<!--https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans-->

@@ -10,7 +10,7 @@ from competition import CompetitionFFAWTA
 # from config.cfg import NUM_ALL_TIME_TOP_POSTS_PER_DAY, NUM_WEEKLY_TOP_POSTS_PER_DAY, NUM_FLAVOUR_IMAGE_HITS, NUM_THUMBNAIL_RATING_HITS, \
 #     NUM_VIDEO_TITLE_HITS, NUM_VIDEO_TITLE_RATING_HITS
 # from database import get_datastore_client, get_storage_client
-# from hits import MTURK_REGION_NAME, MTURK_ENVIRONMENTS, MTURK_PROFILE_NAME
+# from hit templates import MTURK_REGION_NAME, MTURK_ENVIRONMENTS, MTURK_PROFILE_NAME
 # from mturk import create_aa_hit_batch_from_hit_ids, VideoTitleHitBatch, VideoTagsHitBatch, WordEmphasisHitBatch, FlavourImageHitBatch, ImageBackgroundHitBatch, \
 #     ThumbnailRatingHitBatch, TitleRatingHitBatch, launch_video_title_hit_batch, launch_video_tags_hit_batch, launch_word_emphasis_hit_batch, \
 #     launch_flavour_image_hit_batch, launch_image_background_hit_batch, launch_thumbnail_rating_hit_batch, launch_title_rating_hit_batch
@@ -501,7 +501,7 @@ class AlienAnswersHitPipeline:
             hit_batches = {hit_type: self.create_aa_hit_batch_from_hit_ids(hit_batch_classes_by_hit_type[hit_type], hit_ids) for hit_type, hit_ids in
                            hit_ids_by_hit_type.items()}
 
-            hit_batches_launched = {hit_type: hit_batch.num_launched > 0 for hit_type, hit_batch in hit_batches.items()}
+            hit_batches_launched = {hit_type: hit_batch.assignments_launched > 0 for hit_type, hit_batch in hit_batches.items()}
 
             hit_batches_completed = {hit_type: hit_batch.completed() for hit_type, hit_batch in hit_batches.items()}
 
@@ -514,7 +514,7 @@ class AlienAnswersHitPipeline:
                                                                                   self.production)
 
                     if final:
-                        # delete hits
+                        # delete hit templates
                         boto_session = boto3.Session(profile_name=MTURK_PROFILE_NAME)
                         boto_client = boto_session.client(
                             service_name=MTURK_PROFILE_NAME,

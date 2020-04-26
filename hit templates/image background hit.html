@@ -1,0 +1,57 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <!-- The crowd-keypoint element will create a tool for the Worker to place
+           points on the specified objects in your image.
+
+          Your image file URLs will be substituted for the "image_url" variable below
+          when you publish a batch with a CSV input file containing multiple image file URLs.
+          To preview the element with an example image, try setting the src attribute to
+          "https://s3.amazonaws.com/cv-demo-images/basketball-outdoor.jpg" -->
+    <crowd-keypoint
+            src="${image_url}"
+            labels="['background']"
+            header="Place a marker on the background"
+            name="annotatedResult">
+
+        <!-- Use the short-instructions section for quick instructions that the Worker
+              will see while working on the task. Including some basic examples of
+              good and bad answers here can help get good results. You can include
+              any HTML here. -->
+        <short-instructions>
+            <p>Place exactly one marker on any background region of the image.</p>
+        </short-instructions>
+
+        <!-- Use the full-instructions section for more detailed instructions that the
+              Worker can open while working on the task. Including more detailed
+              instructions and additional examples of good and bad answers here can
+              help get good results. You can include any HTML here. -->
+        <full-instructions header="Instructions">
+            <p>Use the point tool to place a point on the background of the image:</p>
+            <ol>
+                <li>The image should contain an obvious background of a solid color. Place a marker on any region of background</li>
+                <li>Avoid shadows, they're not considered as a part of the background.</li>
+                <li>Only place a single marker</li>
+            </ol>
+        </full-instructions>
+
+    </crowd-keypoint>
+    <!--    <crowd-toggle-button required name="solid_background_toggler" valid="solid_background">asdasd</crowd-toggle-button>-->
+    <!--    <div>-->
+    <!--        <p>This images background is a single solid color</p>-->
+    <!--        <crowd-toggle-button required name="solid_background_toggler" valid="solid_background">asdasd</crowd-toggle-button>-->
+    <!--    </div>-->
+
+    <p>Is this image's background a single solid color? Type "yes" or "no"</p>
+    <crowd-input name="background_is_solid" placeholder="Type the shortened question here..." required></crowd-input>
+
+    <p>If this image's background is a single solid color, type the name of the color. Otherwise skip this field</p>
+    <crowd-input name="background_color" placeholder="Type the shortened question here..."></crowd-input>
+
+</crowd-form>

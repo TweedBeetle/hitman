@@ -1,0 +1,38 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <p>
+        Imagine a youtube video about different peoples answers to the question given below.<br>
+        Come up with 3 to 6 tags that fit the video.
+    </p>
+
+
+    <p>When creating tags, please consider the following:</p>
+    <ul>
+        <li>Tags may be between 1 and 3 words in length. (Ideally they should be 2 words in length)</li>
+        <li>You should create both broad tags and specific tags</li>
+        <li>You need't create any tags that reference "reddit" or "askReddit"</li>
+        <li>Be sure to use proper spelling</li>
+    </ul>
+
+    <hr>
+    </p>
+
+    <p><strong>Question: </strong></p>
+    <h2>${question}</h2>
+
+    <hr style="margin-top: 20px; margin-bottom: 20px">
+
+    <p><strong>Type your comma-separated tags below:</strong></p>
+    <crowd-input name="video tags" placeholder="tag one, tag two, tag three, .." required max-length="75" allowed-pattern="^[\x00-\x7F]+$" auto-validate></crowd-input>
+
+    <br>
+
+    <b>Thank you for your participation </b>
+</crowd-form>

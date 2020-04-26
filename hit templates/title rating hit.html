@@ -1,0 +1,85 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans -->
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+
+
+<crowd-form answer-format="flatten-objects">
+
+    <p>
+        Imagine a youtube video containing different peoples answers to the following question:<br>
+    </p>
+    <p><b>${question}</b></p>
+    <p>
+        Below you can see possible titles for the described youtube video. <br>
+        Rate the video titles from 1 (best) to 3 (worst).<br>
+        Use every rating exactly once (even if two titles happen to be the same).
+    </p>
+
+    <div>
+        <table>
+            <tr>
+                <th>video title</th>
+                <th>your rating</th>
+            </tr>
+            <tr>
+                <td style="padding-top: 19px;">${title_1}</td>
+                <td>
+                    <crowd-input name="rating_1" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 19px;">${title_2}</td>
+                <td>
+                    <crowd-input name="rating_2" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-top: 19px;">${title_3}</td>
+                <td>
+                    <crowd-input name="rating_3" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+            </tr>
+        </table>
+        <br>
+
+    </div>
+
+
+    <!--    <table style="width:100%; height:100%">-->
+    <!--        <tr>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_1_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_1}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_2_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_2}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_3_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_3}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--        </tr>-->
+    <!--    </table>-->
+
+</crowd-form>
+<!--https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans-->

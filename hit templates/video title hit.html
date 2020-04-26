@@ -1,0 +1,61 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <p>
+        Imagine a youtube video about different peoples answers to the question given below. <br>
+        Come up with an appealing title for the video.
+    </p>
+
+    <hr>
+    <p>
+        Examples of video titles for the question <b>"Seniors, what was way better back in your day?"</b>:
+    </p>
+    <ul>
+        <li>Seniors share the best "Back in my day..." stories</li>
+        <li>Seniors share what they miss most about the good old days</li>
+        <li>Seniors, what was way better back in your day?</li>
+        <li>The best things about the good old days</li>
+        <li>Why everything used to be better</li>
+    </ul>
+    <hr>
+
+    <p>
+        Be sure to use proper punctuation, capitalisation and grammar.
+    </p>
+
+    <p><strong>Question: </strong></p>
+    <h2>${question}</h2>
+
+    <hr style="margin-top: 20px; margin-bottom: 20px">
+
+<!--    <p><strong>How hard would it be for you to answer this question?</strong></p>-->
+<!--    <table>-->
+<!--        <tr>-->
+<!--            <td>very easy</td>-->
+<!--            <td>-->
+<!--                <crowd-slider required name="_"></crowd-slider>-->
+<!--            </td>-->
+<!--            <td>impossible</td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--    <hr style="margin-top: 20px; margin-bottom: 20px">-->
+
+
+    <p><strong>Type your video title below:</strong></p>
+    <crowd-input name="video title" placeholder="Type your video title here..." required max-length="75" allowed-pattern="^[\x00-\x7F]+$" auto-validate></crowd-input>
+
+    <br>
+
+    <p>
+        If you have any feedback regarding this HIT, feel free to submit it bellow. (optional)
+    </p>
+    <crowd-input name="feedback" placeholder="Type your feedback here..."></crowd-input>
+    <br>
+    <b>Thank you for your participation  </b>
+</crowd-form>

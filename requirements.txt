@@ -3,3 +3,4 @@ xmltodict
 tqdm
 google-cloud-datastore
 trueskill
+Jinja2

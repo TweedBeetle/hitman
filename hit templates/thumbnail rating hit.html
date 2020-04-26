@@ -1,0 +1,78 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans -->
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+<crowd-form answer-format="flatten-objects">
+
+    <h1>
+        Rate the following video thumbnails from 1 (best) to 3 (worst) <br>
+        Use every rating exactly once
+    </h1>
+
+    <div style="">
+        <table>
+            <tr>
+                            <th><img src="${image_url_1}" style="max-width: 100%; max-height: 100%;"></th>
+                            <th><img src="${image_url_2}" style="max-width: 100%; max-height: 100%;"></th>
+                            <th><img src="${image_url_3}" style="max-width: 100%; max-height: 100%;"></th>
+<!--                <th><img src="https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg" style="max-width: 100%; max-height: 100%;"></th>-->
+<!--                <th><img src="https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg" style="max-width: 100%; max-height: 100%;"></th>-->
+<!--                <th><img src="https://cdn.shopify.com/s/files/1/1234/1684/products/print_all_over_me_3_t-shirt_0000000p-one-true-god.jpg" style="max-width: 100%; max-height: 100%;"></th>-->
+            </tr>
+            <tr>
+                <td>Rating</td>
+                <td>Rating</td>
+                <td>Rating</td>
+            </tr>
+            <tr>
+                <td>
+                    <crowd-input name="rating_1" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+                <td>
+                    <crowd-input name="rating_2" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+                <td>
+                    <crowd-input name="rating_3" placeholder="1, 2 or 3" required allowed-pattern="1|2|3" auto-validate></crowd-input>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <!--    <table style="width:100%; height:100%">-->
+    <!--        <tr>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_1_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_1}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_2_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_2}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--            <th>-->
+    <!--                <crowd-image-classifier-->
+    <!--                        categories="['best', 'second best', 'worst']"-->
+    <!--                        name="image_3_rating"-->
+    <!--                        header="How good is this thumbnail?"-->
+    <!--                        src="${image_url_3}"-->
+    <!--                >-->
+    <!--                </crowd-image-classifier>-->
+    <!--            </th>-->
+    <!--        </tr>-->
+    <!--    </table>-->
+
+</crowd-form>
+<!--https://www.google.com/imghp?as_st=y&tbm=isch&as_q=&as_epq=&as_oq=&as_eq=&cr=&as_sitesearch=&safe=images&tbs=isz:lt,islt:qsvga,ic:trans-->

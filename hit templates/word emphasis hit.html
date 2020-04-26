@@ -1,0 +1,51 @@
+<!-- You must include this JavaScript file -->
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<!-- For the full list of available Crowd HTML Elements and their input/output documentation,
+      please refer to https://docs.aws.amazon.com/sagemaker/latest/dg/sms-ui-template-reference.html -->
+
+<!-- You must include crowd-form so that your task submits answers to MTurk -->
+
+
+<crowd-form answer-format="flatten-objects">
+
+    <style>
+        td {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+
+    <p>
+        Decide which words in the following youtube video title should be emphasized.<br>
+        Don't emphasize to many words.
+    </p>
+    <p>
+        Example: What is the <b>scariest story</b> you know that is <b>100% true?</b>
+    </p>
+
+    <h3>
+        Title:
+    </h3>
+
+    <table border="1" rules="cols">
+        <tr>
+            {% for i in indices %}
+            <td>
+                {{words[i]}}
+            </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for i in indices %}
+            <td>
+                <crowd-checkbox name="{{ i }} {{ words[i] }}"></crowd-checkbox>
+            </td>
+            {% endfor %}
+        </tr>
+
+    </table>
+
+    <br>
+
+</crowd-form>
